@@ -281,7 +281,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/09/17/Lagrange-Multiplier-Method/" itemprop="url">First Blog On This Site</a></h1>
+                <a class="post-title-link" href="/2018/09/17/Lagrange-Multiplier-Method/" itemprop="url">Lagrange Multiplier Method</a></h1>
         
 
         <div class="post-meta">
@@ -358,10 +358,40 @@
             <h1 id="Lagrange-Multiplier-Method"><a href="#Lagrange-Multiplier-Method" class="headerlink" title="Lagrange Multiplier Method"></a>Lagrange Multiplier Method</h1><p>Today, I learned a method of finding the conditional extremum of the two-variables function, called the Lagrange multiplier method. </p>
 <h2 id="How-to-use-Lagrange-Multiplier-Method"><a href="#How-to-use-Lagrange-Multiplier-Method" class="headerlink" title="How to use Lagrange Multiplier Method"></a>How to use Lagrange Multiplier Method</h2><p>When we need to know the unconditional extremum of a two-variables, calculating partial derivatives and second derivatives will be useful.</p>
 <p>But what if I add a condition $\varphi(x,y)=0$?</p>
-<p>To solve the problem about the extremum of $f(x,y)$ under $\varphi(x,y)=0$, we can construct the Lagrange Function:<br>$$F(x,y,\lambda)=f(x,y)+\lambda\varphi(x,y)$$<br>Then solve this equation：<br>$$\begin{cases} \tag{*}<br>\dfrac{\partial F}{\partial x}=\dfrac{\partial f}{\partial x}+\lambda\dfrac{\partial \varphi}{\partial x}=0\<br>&amp;\<br>\dfrac{\partial F}{\partial y}=\dfrac{\partial f}{\partial y}+\lambda\dfrac{\partial \varphi}{\partial y}=0\<br>&amp;\<br>\dfrac{\partial F}{\partial \lambda}=\varphi(x,y)=0\<br>\end{cases}<br>$$<br>All x and y meet with this equation are extreme points meeting $\varphi(x,y)=0$.</p>
-<h2 id="Proof-of-Lagrange-Multiplier-Method"><a href="#Proof-of-Lagrange-Multiplier-Method" class="headerlink" title="Proof of Lagrange Multiplier Method"></a>Proof of Lagrange Multiplier Method</h2><p>Now consider the function $y=y(x)$ confirmed by $\varphi(x,y)=0$, we plug this into $z=f(x,y)$:<br>$$z=f(x,y(x))\tag{1}$$<br>Then the two-variables problem is transformed into the single variable problem. Suppose $x_0$ is the extreme point of z, and $y_0=y(x_0)$. Obviously when $x=x_0$(while $y=y_0$):<br>$$<br>\frac{dz}{dx}\bigg|_{x=x_0}=f_x^{‘}(x_0,y(x_0))+f_y^{‘}(x_0,y(x_0))\cdot y^{‘}(x_0)=0\tag{2}<br>$$<br>By using formula of derivation calculus for hidden function we know:<br>$$<br>y^{‘}(x_0)=-\frac{\varphi_x^{‘}(x_0,y_0)}{\varphi_y^{‘}(x_0,y_0)}\tag{3}<br>$$<br>Plug $y_0=y(x_0)$ and (3) into (2), and simplify it:<br>$$<br>\frac{dz}{dx}\bigg|_{x=x_0}=f_x^{‘}(x_0,y_0)-\frac{f_y^{‘}(x_0,y_0)}{\varphi_y^{‘}(x_0,y_0)}\cdot\varphi_x^{‘}(x_0,y_0)=0\tag{4}<br>$$<br>If we consider $x=x(y)$confirmed by $\varphi(x,y)=0$. By the similar way, we can get:<br>$$<br>\frac{dz}{dy}\bigg|_{y=y_0}=f_y^{‘}(x_0,y_0)-\frac{f_x^{‘}(x_0,y_0)}{\varphi_x^{‘}(x_0,y_0)}\cdot\varphi_y^{‘}(x_0,y_0)=0\tag{5}<br>$$<br>Let $\lambda=-\dfrac{f_y^{‘}(x_0,y_0)}{\varphi_y^{‘}(x_0,y_0)}=-\dfrac{f_x^{‘}(x_0,y_0)}{\varphi_x^{‘}(x_0,y_0)}$. Plug this into (4) and (5). Then we have the following equation:<br>$$\begin{cases}<br>f_x^{‘}(x_0,y_0)-\lambda\cdot\varphi_x^{‘}(x_0,y_0)=0\<br>&amp;\<br>f_y^{‘}(x_0,y_0)-\lambda\cdot\varphi_y^{‘}(x_0,y_0)=0\<br>&amp;\<br>\end{cases}<br>$$<br>Obviously $x=x_0$ and $y=y_0$ are the solutions of following equation:<br>$$\begin{cases}<br>\dfrac{\partial f}{\partial x}+\lambda\dfrac{\partial \varphi}{\partial x}=0\<br>&amp;\<br>\dfrac{\partial f}{\partial y}+\lambda\dfrac{\partial \varphi}{\partial y}=0\<br>&amp;\<br>\varphi(x,y)=0\<br>\end{cases}<br>$$<br>Let $F(x,y,\lambda)=f(x,y)+\lambda\varphi(x,y)$, we can get (*).<br>Q.E.D.</p>
+<p>To solve the problem about the extremum of $f(x,y)$ under $\varphi(x,y)=0$, we can construct the Lagrange Function: </p>
+<script type="math/tex; mode=display">F(x,y,\lambda)=f(x,y)+\lambda\varphi(x,y)</script><p>Then solve this equation：</p>
+<script type="math/tex; mode=display">\begin{cases} \tag{*}
+\dfrac{\partial F}{\partial x}=\dfrac{\partial f}{\partial x}+\lambda\dfrac{\partial \varphi}{\partial x}=0\\
+&\\
+\dfrac{\partial F}{\partial y}=\dfrac{\partial f}{\partial y}+\lambda\dfrac{\partial \varphi}{\partial y}=0\\
+&\\
+\dfrac{\partial F}{\partial \lambda}=\varphi(x,y)=0\\
+\end{cases}</script><p>All x and y meet with this equation are extreme points meeting $\varphi(x,y)=0$.</p>
+<h2 id="Proof-of-Lagrange-Multiplier-Method"><a href="#Proof-of-Lagrange-Multiplier-Method" class="headerlink" title="Proof of Lagrange Multiplier Method"></a>Proof of Lagrange Multiplier Method</h2><p>Now consider the function $y=y(x)$ confirmed by $\varphi(x,y)=0$, we plug this into $z=f(x,y)$:</p>
+<script type="math/tex; mode=display">z=f(x,y(x))\tag{1}</script><p>Then the two-variables problem is transformed into the single variable problem. Suppose $x_0$ is the extreme point of z, and $y_0=y(x_0)$. Obviously when $x=x_0$(while $y=y_0$):</p>
+<script type="math/tex; mode=display">
+\frac{dz}{dx}\bigg|_{x=x_0}=f_x^{'}(x_0,y(x_0))+f_y^{'}(x_0,y(x_0))\cdot y^{'}(x_0)=0\tag{2}</script><p>By using formula of derivation calculus for hidden function we know:</p>
+<script type="math/tex; mode=display">
+y^{'}(x_0)=-\frac{\varphi_x^{'}(x_0,y_0)}{\varphi_y^{'}(x_0,y_0)}\tag{3}</script><p>Plug $y_0=y(x_0)$ and (3) into (2), and simplify it:</p>
+<script type="math/tex; mode=display">
+\frac{dz}{dx}\bigg|_{x=x_0}=f_x^{'}(x_0,y_0)-\frac{f_y^{'}(x_0,y_0)}{\varphi_y^{'}(x_0,y_0)}\cdot\varphi_x^{'}(x_0,y_0)=0\tag{4}</script><p>If we consider $x=x(y)$confirmed by $\varphi(x,y)=0$. By the similar way, we can get:</p>
+<script type="math/tex; mode=display">
+\frac{dz}{dy}\bigg|_{y=y_0}=f_y^{'}(x_0,y_0)-\frac{f_x^{'}(x_0,y_0)}{\varphi_x^{'}(x_0,y_0)}\cdot\varphi_y^{'}(x_0,y_0)=0\tag{5}</script><p>Let $\lambda=-\dfrac{f_y^{‘}(x_0,y_0)}{\varphi_y^{‘}(x_0,y_0)}=-\dfrac{f_x^{‘}(x_0,y_0)}{\varphi_x^{‘}(x_0,y_0)}$. Plug this into (4) and (5). Then we have the following equation:</p>
+<script type="math/tex; mode=display">\begin{cases} 
+f_x^{'}(x_0,y_0)-\lambda\cdot\varphi_x^{'}(x_0,y_0)=0\\
+&\\
+f_y^{'}(x_0,y_0)-\lambda\cdot\varphi_y^{'}(x_0,y_0)=0\\
+&\\
+\end{cases}</script><p>Obviously $x=x_0$ and $y=y_0$ are the solutions of following equation:</p>
+<script type="math/tex; mode=display">\begin{cases} 
+\dfrac{\partial f}{\partial x}+\lambda\dfrac{\partial \varphi}{\partial x}=0\\
+&\\
+\dfrac{\partial f}{\partial y}+\lambda\dfrac{\partial \varphi}{\partial y}=0\\
+&\\
+\varphi(x,y)=0\\
+\end{cases}</script><p>Let $F(x,y,\lambda)=f(x,y)+\lambda\varphi(x,y)$, we can get (*).<br>Q.E.D.</p>
 <blockquote>
-<p> If you are puzzled by why $-\dfrac{f_y^{‘}(x_0,y_0)}{\varphi_y^{‘}(x_0,y_0)}=-\dfrac{f_x^{‘}(x_0,y_0)}{\varphi_x^{‘}(x_0,y_0)}$, you can contact me by email <a href="mailto:umbrellalalalala@qq.com" target="_blank" rel="noopener">umbrellalalalala@qq.com</a> . Actually it is a nature of point of tangency, so I didn’t explain it here.</p>
+<p> If you are puzzled by why $-\dfrac{f_y^{‘}(x_0,y_0)}{\varphi_y^{‘}(x_0,y_0)}=-\dfrac{f_x^{‘}(x_0,y_0)}{\varphi_x^{‘}(x_0,y_0)}$, you can contact me by email umbrellalalalala@qq.com . Actually it is a nature of point of tangency, so I didn’t explain it here.</p>
 </blockquote>
 
           
@@ -823,6 +853,28 @@
   
 
   
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
 
   
 
