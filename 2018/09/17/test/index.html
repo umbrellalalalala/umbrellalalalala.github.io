@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Lagrange," />
 
 
 
@@ -79,16 +79,18 @@
 
 
 
-<meta name="description" content="分享Umbrellalalalala的学术文章">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Umbrellalalalala&#39;s blog">
-<meta property="og:url" content="https://yoursite.com/index.html">
+<meta name="description" content="s_x这是一个试验">
+<meta name="keywords" content="Lagrange">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Test">
+<meta property="og:url" content="https://yoursite.com/2018/09/17/test/index.html">
 <meta property="og:site_name" content="Umbrellalalalala&#39;s blog">
-<meta property="og:description" content="分享Umbrellalalalala的学术文章">
+<meta property="og:description" content="s_x这是一个试验">
 <meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2019-01-01T07:06:53.428Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Umbrellalalalala&#39;s blog">
-<meta name="twitter:description" content="分享Umbrellalalalala的学术文章">
+<meta name="twitter:title" content="Test">
+<meta name="twitter:description" content="s_x这是一个试验">
 
 
 
@@ -118,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="https://yoursite.com/"/>
+  <link rel="canonical" href="https://yoursite.com/2018/09/17/test/"/>
 
 
 
 
 
-  <title>Umbrellalalalala's blog</title>
+  <title>Test | Umbrellalalalala's blog</title>
   
 
 
@@ -143,8 +145,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -247,188 +248,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://yoursite.com/2018/09/17/Lagrange-Multiplier-Method/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Umbrellalalalala">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Umbrellalalalala's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/09/17/Lagrange-Multiplier-Method/" itemprop="url">Lagrange Multiplier Method</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-09-17T22:20:30+08:00">
-                2018-09-17
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Mathematics/" itemprop="url" rel="index">
-                    <span itemprop="name">Mathematics</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="Lagrange-Multiplier-Method"><a href="#Lagrange-Multiplier-Method" class="headerlink" title="Lagrange Multiplier Method"></a>Lagrange Multiplier Method</h1><p>Today, I learned a method of finding the conditional extremum of the two-variables function, called the Lagrange multiplier method. </p>
-<h2 id="How-to-use-Lagrange-Multiplier-Method"><a href="#How-to-use-Lagrange-Multiplier-Method" class="headerlink" title="How to use Lagrange Multiplier Method"></a>How to use Lagrange Multiplier Method</h2><p>When we need to know the unconditional extremum of a two-variables, calculating partial derivatives and second derivatives will be useful.</p>
-<p>But what if I add a condition $\varphi(x,y)=0$?</p>
-<p>To solve the problem about the extremum of $f(x,y)$ under $\varphi(x,y)=0$, we can construct the Lagrange Function: </p>
-<script type="math/tex; mode=display">F(x,y,\lambda)=f(x,y)+\lambda\varphi(x,y)</script><p>Then solve this equation：</p>
-<script type="math/tex; mode=display">\begin{cases} \tag{*}
-\dfrac{\partial F}{\partial x}=\dfrac{\partial f}{\partial x}+\lambda\dfrac{\partial \varphi}{\partial x}=0\\
-&\\
-\dfrac{\partial F}{\partial y}=\dfrac{\partial f}{\partial y}+\lambda\dfrac{\partial \varphi}{\partial y}=0\\
-&\\
-\dfrac{\partial F}{\partial \lambda}=\varphi(x,y)=0\\
-\end{cases}</script><p>All x and y meet with this equation are extreme points meeting $\varphi(x,y)=0$.</p>
-<h2 id="Proof-of-Lagrange-Multiplier-Method"><a href="#Proof-of-Lagrange-Multiplier-Method" class="headerlink" title="Proof of Lagrange Multiplier Method"></a>Proof of Lagrange Multiplier Method</h2><p>Now consider the function $y=y(x)$ confirmed by $\varphi(x,y)=0$, we plug this into $z=f(x,y)$:</p>
-<script type="math/tex; mode=display">z=f(x,y(x))\tag{1}</script><p>Then the two-variables problem is transformed into the single variable problem. Suppose $x_0$ is the extreme point of z, and $y_0=y(x_0)$. Obviously when $x=x_0$(while $y=y_0$):</p>
-<script type="math/tex; mode=display">
-\frac{dz}{dx}\bigg|_{x=x_0}=f_x^{'}(x_0,y(x_0))+f_y^{'}(x_0,y(x_0))\cdot y^{'}(x_0)=0\tag{2}</script><p>By using formula of derivation calculus for hidden function we know:</p>
-<script type="math/tex; mode=display">
-y^{'}(x_0)=-\frac{\varphi_x^{'}(x_0,y_0)}{\varphi_y^{'}(x_0,y_0)}\tag{3}</script><p>Plug $y_0=y(x_0)$ and (3) into (2), and simplify it:</p>
-<script type="math/tex; mode=display">
-\frac{dz}{dx}\bigg|_{x=x_0}=f_x^{'}(x_0,y_0)-\frac{f_y^{'}(x_0,y_0)}{\varphi_y^{'}(x_0,y_0)}\cdot\varphi_x^{'}(x_0,y_0)=0\tag{4}</script><p>If we consider $x=x(y)$confirmed by $\varphi(x,y)=0$. By the similar way, we can get:</p>
-<script type="math/tex; mode=display">
-\frac{dz}{dy}\bigg|_{y=y_0}=f_y^{'}(x_0,y_0)-\frac{f_x^{'}(x_0,y_0)}{\varphi_x^{'}(x_0,y_0)}\cdot\varphi_y^{'}(x_0,y_0)=0\tag{5}</script><p>Let $\lambda=-\dfrac{f’_y(x_0,y_0)}{\varphi’_y(x_0,y_0)}=-\dfrac{f’_x(x_0,y_0)}{\varphi’_x(x_0,y_0)}$. Plug this into (4) and (5). Then we have the following equation:</p>
-<script type="math/tex; mode=display">\begin{cases} 
-f_x^{'}(x_0,y_0)-\lambda\cdot\varphi_x^{'}(x_0,y_0)=0\\
-&\\
-f_y^{'}(x_0,y_0)-\lambda\cdot\varphi_y^{'}(x_0,y_0)=0\\
-&\\
-\end{cases}</script><p>Obviously $x=x_0$ and $y=y_0$ are the solutions of following equation:</p>
-<script type="math/tex; mode=display">\begin{cases} 
-\dfrac{\partial f}{\partial x}+\lambda\dfrac{\partial \varphi}{\partial x}=0\\
-&\\
-\dfrac{\partial f}{\partial y}+\lambda\dfrac{\partial \varphi}{\partial y}=0\\
-&\\
-\varphi(x,y)=0\\
-\end{cases}</script><p>Let $F(x,y,\lambda)=f(x,y)+\lambda\varphi(x,y)$, we can get (*).<br>Q.E.D.</p>
-<blockquote>
-<p> If you are puzzled by why $-\dfrac{f’_y(x_0,y_0)}{\varphi’_y(x_0,y_0)}=-\dfrac{f’_x(x_0,y_0)}{\varphi’_x(x_0,y_0)}$, you can contact me by email umbrellalalalala@qq.com . Actually it is a nature of point of tangency, so I didn’t explain it here.</p>
-</blockquote>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
 
   
 
@@ -458,9 +280,7 @@ f_y^{'}(x_0,y_0)-\lambda\cdot\varphi_y^{'}(x_0,y_0)=0\\
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/09/17/test/" itemprop="url">Test</a></h1>
+          <h1 class="post-title" itemprop="name headline">Test</h1>
         
 
         <div class="post-meta">
@@ -532,12 +352,8 @@ f_y^{'}(x_0,y_0)-\lambda\cdot\varphi_y^{'}(x_0,y_0)=0\\
       
 
       
-        
-          
-            <p><script type="math/tex">s_x</script>这是一个试验</p>
+        <p><script type="math/tex">s_x</script>这是一个试验</p>
 
-          
-        
       
     </div>
     
@@ -552,158 +368,40 @@ f_y^{'}(x_0,y_0)-\lambda\cdot\varphi_y^{'}(x_0,y_0)=0\\
 
     <footer class="post-footer">
       
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://yoursite.com/2018/09/16/First-Blog-On-This-Site/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Umbrellalalalala">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Umbrellalalalala's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/09/16/First-Blog-On-This-Site/" itemprop="url">First Blog On This Site</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-09-16T17:47:31+08:00">
-                2018-09-16
-              </time>
-            
-
-            
-
-            
-          </span>
-
+        <div class="post-tags">
           
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/diary/" itemprop="url" rel="index">
-                    <span itemprop="name">diary</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
+            <a href="/tags/Lagrange/" rel="tag"># Lagrange</a>
           
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>I have spent the whole day. Finally build this blog based on GitHub and Hexo. I used CSDN only before.</p>
-<p>I am preparing for the postgraduate entrance examination at the end of the year. I’m very busy. So you can expect me begin to update this blog in early 2019.</p>
-<p>I will publish all my academic experience here. Maybe I haven’t got any scientific achievements yet. But we can learn and progress together.</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
       
 
       
       
-        <div class="post-eof"></div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/09/16/First-Blog-On-This-Site/" rel="next" title="First Blog On This Site">
+                <i class="fa fa-chevron-left"></i> First Blog On This Site
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/09/17/Lagrange-Multiplier-Method/" rel="prev" title="Lagrange Multiplier Method">
+                Lagrange Multiplier Method <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
       
     </footer>
   </div>
@@ -713,10 +411,11 @@ f_y^{'}(x_0,y_0)-\lambda\cdot\varphi_y^{'}(x_0,y_0)=0\\
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -724,6 +423,10 @@ f_y^{'}(x_0,y_0)-\lambda\cdot\varphi_y^{'}(x_0,y_0)=0\\
 
 
           
+
+  
+
+
 
         </div>
         
@@ -938,6 +641,10 @@ f_y^{'}(x_0,y_0)-\lambda\cdot\varphi_y^{'}(x_0,y_0)=0\\
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
