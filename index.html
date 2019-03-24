@@ -1,9 +1,9 @@
+
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8">
-  
-
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   
   <title>Umbrellalalalala&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -18,62 +18,74 @@
 <meta name="twitter:title" content="Umbrellalalalala&#39;s blog">
 <meta name="twitter:description" content="分享Umbrellalalalala的学术文章">
   
-    <link rel="alternate" href="/atom.xml" title="Umbrellalalalala&#39;s blog" type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="Umbrellalalalala&#39;s blog" type="application/atom+xml">
   
-  
-    <link rel="icon" href="/favicon.png">
-  
-  
-    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
   
   <link rel="stylesheet" href="/css/style.css">
+  
+    <link href="//fonts.useso.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <!--[if lt IE 9]><script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.min.js"></script><![endif]-->
+  
+  
+
 </head>
 
 <body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
+<div id="container">
+  <div id="wrap">
+    <header id="header">
   <div id="banner"></div>
   <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">Umbrellalalalala&#39;s blog</a>
-      </h1>
-      
-        <h2 id="subtitle-wrap">
-          <a href="/" id="subtitle">Enjoy the symphony of the storm.</a>
-        </h2>
-      
-    </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
-        
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
+    <nav id="upper-nav" class="inner">
+      <a id="main-nav-toggle" class="nav-icon"></a>
+      <div class="sub-nav">
         
           <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://yoursite.com"></form>
+        
+          <a id="nav-github" class="nav-icon" href="https://github.com/myname"></a>
+        
       </div>
+    </nav>
+    <div id="header-title">
+      
+        <h1 id="blog-title-wrap">
+          <a href="/" id="blog-title">My Blog</a>
+        </h1>
+      
     </div>
+    <div id="contenedor">
+      <ul class="cube">
+        <li class="cara">MyLogo</li>
+        <li class="cara"></li>
+        <li class="cara"></li>
+        <li class="cara"></li>
+        <li class="cara"></li>
+        <li class="cara"></li>
+      </ul>
+    </div>
+    <nav id="main-nav">
+      
+        <a class="main-nav-link" href="/">Home</a>
+      
+        <a class="main-nav-link" href="/archives">Archives</a>
+      
+        <a class="main-nav-link" href="/about">About</a>
+      
+      <a class="main-nav-link st-search-show-outputs">Search</a>
+    </nav>
   </div>
 </header>
-      <div class="outer">
-        <section id="main">
+
+    <div class="outer">
+      <section id="main">
   
     <article id="post-C语言——基础查漏补缺（一）" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2019/02/15/C语言——基础查漏补缺（一）/" class="article-date">
+    <h3 href="/2019/02/15/C语言——基础查漏补缺（一）/" class="article-date">
   <time datetime="2019-02-15T11:29:29.000Z" itemprop="datePublished">2019-02-15</time>
-</a>
+</h3>
     
   <div class="article-category">
     <a class="article-category-link" href="/categories/programming-languages/">programming languages</a>
@@ -81,6 +93,8 @@
 
   </div>
   <div class="article-inner">
+  <div class="curve-down">
+  <div class="fill-content">
     
     
       <header class="article-header">
@@ -95,6 +109,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
+        
         <p>C语言是博主最先学的语言，但接触机器学习以来，主要编程语言变成了python，为了防止对C语言的淡忘，利用谭浩强C语言系列进行查漏补缺，进行易忘概念总结。</p>
 <h1 id="基础知识"><a href="#基础知识" class="headerlink" title="基础知识"></a>基础知识</h1><p>1、一个C程序的执行是从本程序的main函数开始，到main函数结束；<br>2、C语言本身没有输入输出语句（只有输入输出函数）；<br>3、C语言规定，在源程序中main函数的位置可以任意；<br>4、一个C语言程序是由:</p>
 <script type="math/tex; mode=display">\small\left\{
@@ -727,23 +742,28 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://yoursite.com/2019/02/15/C语言——基础查漏补缺（一）/" data-id="cjtmld3kk0008f6wzf4hqp465" class="article-share-link">Share</a>
-      
-      
+      <div class="article-footer-content">
+        
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C</a></li></ul>
 
+        <a data-url="https://yoursite.com/2019/02/15/C语言——基础查漏补缺（一）/" data-id="cjtmlrtwq000iilwzamsj55pu" class="article-share-link">Share</a>
+        
+      </div>
     </footer>
+  </div>
+  </div>
   </div>
   
 </article>
 
 
+
   
     <article id="post-Notice-of-Deferred-Update" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2019/01/06/Notice-of-Deferred-Update/" class="article-date">
+    <h3 href="/2019/01/06/Notice-of-Deferred-Update/" class="article-date">
   <time datetime="2019-01-06T04:10:33.000Z" itemprop="datePublished">2019-01-06</time>
-</a>
+</h3>
     
   <div class="article-category">
     <a class="article-category-link" href="/categories/Notice/">Notice</a>
@@ -751,6 +771,8 @@
 
   </div>
   <div class="article-inner">
+  <div class="curve-down">
+  <div class="fill-content">
     
     
       <header class="article-header">
@@ -765,29 +787,35 @@
     
     <div class="article-entry" itemprop="articleBody">
       
+        
         <h1 id="Notice-of-Deferred-Update"><a href="#Notice-of-Deferred-Update" class="headerlink" title="Notice of Deferred Update"></a>Notice of Deferred Update</h1><p>As I said last year, you could expect me begin to update this blog in early 2019. But it can’t start as scheduled because I’m going to spend my winter vacation in a place without GitHub, Google and so on. The reason why Github is unreachable is very complicated, and I can’t say more. You just need to know I will begin to update this blog at the end of February. And during this period You could pay attention to my <a href="https://blog.csdn.net/umbrellalalalala" target="_blank" rel="noopener"><strong>CSDN</strong> blog </a> (<a href="https://blog.csdn.net/umbrellalalalala" target="_blank" rel="noopener">https://blog.csdn.net/umbrellalalalala</a>). Thank you for your attention.</p>
 <h1 id="关于推迟更新的通知"><a href="#关于推迟更新的通知" class="headerlink" title="关于推迟更新的通知"></a>关于推迟更新的通知</h1><p>正如我去年所说，我将在2019年年初开始更新我的Github博客，但很抱歉我要推迟更新时间了。我将去一个没有Github和Google等的地方度过我的寒假，至于<strong>绝对</strong>无法访问Github和Google的原因有点敏感，不便多说。在此期间，我将使用<a href="https://blog.csdn.net/umbrellalalalala" target="_blank" rel="noopener"><strong>CSDN</strong> 博客 </a> (<a href="https://blog.csdn.net/umbrellalalalala" target="_blank" rel="noopener">https://blog.csdn.net/umbrellalalalala</a>) ，在二月底回校后，我会第一时间将上面发布的博客移植到Github上。感谢您的关注。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://yoursite.com/2019/01/06/Notice-of-Deferred-Update/" data-id="cjtmld3kf0002f6wzy3d7ff3c" class="article-share-link">Share</a>
-      
-      
+      <div class="article-footer-content">
+        
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Deferred-Update/">Deferred Update</a></li></ul>
 
+        <a data-url="https://yoursite.com/2019/01/06/Notice-of-Deferred-Update/" data-id="cjtmlrtwb0002ilwzwx1o22d3" class="article-share-link">Share</a>
+        
+      </div>
     </footer>
+  </div>
+  </div>
   </div>
   
 </article>
 
 
+
   
     <article id="post-Lagrange-Multiplier-Method" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2018/09/17/Lagrange-Multiplier-Method/" class="article-date">
+    <h3 href="/2018/09/17/Lagrange-Multiplier-Method/" class="article-date">
   <time datetime="2018-09-17T14:20:30.000Z" itemprop="datePublished">2018-09-17</time>
-</a>
+</h3>
     
   <div class="article-category">
     <a class="article-category-link" href="/categories/Mathematics/">Mathematics</a>
@@ -795,6 +823,8 @@
 
   </div>
   <div class="article-inner">
+  <div class="curve-down">
+  <div class="fill-content">
     
     
       <header class="article-header">
@@ -809,6 +839,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
+        
         <h1 id="Lagrange-Multiplier-Method"><a href="#Lagrange-Multiplier-Method" class="headerlink" title="Lagrange Multiplier Method"></a>Lagrange Multiplier Method</h1><p>Today, I learned a method of finding the conditional extremum of the two-variables function, called the Lagrange multiplier method. </p>
 <h2 id="How-to-use-Lagrange-Multiplier-Method"><a href="#How-to-use-Lagrange-Multiplier-Method" class="headerlink" title="How to use Lagrange Multiplier Method"></a>How to use Lagrange Multiplier Method</h2><p>When we need to know the unconditional extremum of a two-variables, calculating partial derivatives and second derivatives will be useful.</p>
 <p>But what if I add a condition $\varphi(x,y)=0$?</p>
@@ -851,23 +882,28 @@ f_y^{'}(x_0,y_0)-\lambda\cdot\varphi_y^{'}(x_0,y_0)=0\\
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://yoursite.com/2018/09/17/Lagrange-Multiplier-Method/" data-id="cjtmld3kj0006f6wzcxcu17mg" class="article-share-link">Share</a>
-      
-      
+      <div class="article-footer-content">
+        
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Lagrange/">Lagrange</a></li></ul>
 
+        <a data-url="https://yoursite.com/2018/09/17/Lagrange-Multiplier-Method/" data-id="cjtmlrtwf0006ilwzqznyp7hj" class="article-share-link">Share</a>
+        
+      </div>
     </footer>
+  </div>
+  </div>
   </div>
   
 </article>
 
 
+
   
     <article id="post-First-Blog-On-This-Site" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2018/09/16/First-Blog-On-This-Site/" class="article-date">
+    <h3 href="/2018/09/16/First-Blog-On-This-Site/" class="article-date">
   <time datetime="2018-09-16T09:47:31.000Z" itemprop="datePublished">2018-09-16</time>
-</a>
+</h3>
     
   <div class="article-category">
     <a class="article-category-link" href="/categories/diary/">diary</a>
@@ -875,6 +911,8 @@ f_y^{'}(x_0,y_0)-\lambda\cdot\varphi_y^{'}(x_0,y_0)=0\\
 
   </div>
   <div class="article-inner">
+  <div class="curve-down">
+  <div class="fill-content">
     
     
       <header class="article-header">
@@ -889,6 +927,7 @@ f_y^{'}(x_0,y_0)-\lambda\cdot\varphi_y^{'}(x_0,y_0)=0\\
     
     <div class="article-entry" itemprop="articleBody">
       
+        
         <p>I have spent the whole day. Finally build this blog based on GitHub and Hexo. I used CSDN only before.</p>
 <p>I am preparing for the postgraduate entrance examination at the end of the year. I’m very busy. So you can expect me begin to update this blog in early 2019.</p>
 <p>I will publish all my academic experience here. Maybe I haven’t got any scientific achievements yet. But we can learn and progress together.</p>
@@ -896,66 +935,31 @@ f_y^{'}(x_0,y_0)-\lambda\cdot\varphi_y^{'}(x_0,y_0)=0\\
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://yoursite.com/2018/09/16/First-Blog-On-This-Site/" data-id="cjtmld3kb0000f6wzgkz0gppb" class="article-share-link">Share</a>
-      
-      
+      <div class="article-footer-content">
+        
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/footprint/">footprint</a></li></ul>
 
+        <a data-url="https://yoursite.com/2018/09/16/First-Blog-On-This-Site/" data-id="cjtmlrtw70000ilwz9r4dsqn2" class="article-share-link">Share</a>
+        
+      </div>
     </footer>
+  </div>
+  </div>
   </div>
   
 </article>
 
 
+
   
-
-
+  
 </section>
-        
-          <aside id="sidebar">
+      
+      <aside id="sidebar">
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Categories</h3>
-    <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Mathematics/">Mathematics</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Notice/">Notice</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/diary/">diary</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/programming-languages/">programming languages</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tags</h3>
-    <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/">C</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Deferred-Update/">Deferred Update</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Lagrange/">Lagrange</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/footprint/">footprint</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tag Cloud</h3>
-    <div class="widget tagcloud">
-      <a href="/tags/C/" style="font-size: 10px;">C</a> <a href="/tags/Deferred-Update/" style="font-size: 10px;">Deferred Update</a> <a href="/tags/Lagrange/" style="font-size: 10px;">Lagrange</a> <a href="/tags/footprint/" style="font-size: 10px;">footprint</a>
-    </div>
-  </div>
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
+    <h3 class="widget-title">Recents</h3>
     <div class="widget">
       <ul>
         
@@ -980,29 +984,67 @@ f_y^{'}(x_0,y_0)-\lambda\cdot\varphi_y^{'}(x_0,y_0)=0\\
   </div>
 
   
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/">C</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Deferred-Update/">Deferred Update</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Lagrange/">Lagrange</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/footprint/">footprint</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a><span class="archive-list-count">2</span></li></ul>
+    </div>
+  </div>
+
+  
 </aside>
-        
-      </div>
-      <footer id="footer">
+      
+    </div>
+    <footer id="footer">
   
   <div class="outer">
     <div id="footer-info" class="inner">
       &copy; 2019 Umbrellalalalala<br>
       Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      .
+      Theme by <a href="https://github.com/sun11/hexo-theme-paperbox" target="_blank">Paperbox</a>
     </div>
   </div>
 </footer>
-    </div>
-    <nav id="mobile-nav">
+  </div>
+  <nav id="mobile-nav">
   
     <a href="/" class="mobile-nav-link">Home</a>
   
     <a href="/archives" class="mobile-nav-link">Archives</a>
   
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+  <a href="#search" class="mobile-nav-link st-search-show-outputs">Search</a>
 </nav>
-    
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+  
+
+<!-- totop start -->
+<div id="totop">
+	<a title="To Top"></a>
+</div>
+<!-- totop end -->
+
+<!-- swiftype search start -->
+
+<!-- swiftype search end -->
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/lrsjng.jquery-qrcode/0.12.0/jquery.qrcode.min.js"></script>
 
 
   <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
@@ -1011,8 +1053,6 @@ f_y^{'}(x_0,y_0)-\lambda\cdot\varphi_y^{'}(x_0,y_0)=0\\
 
 <script src="/js/script.js"></script>
 
-
-
-  </div>
+</div>
 </body>
 </html>
