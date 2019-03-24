@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="C;DP," />
+  <meta name="keywords" content="C,DP," />
 
 
 
@@ -80,7 +80,7 @@
 
 
 <meta name="description" content="昨天晚上回顾了以前在onenote上记的动态规划笔记，发现很多程序都有相似之处，且最近两天写的动态规划程序都没有一遍AC。所以将这两天写的动态规划程序总结至此，以便背诵、默写用（这种题被罚时实在太亏）。 背诵的时候要特别注意dp数组的功能和其递推公式。 阅读指南六道题分别是钱币兑换、0-1背包、完全背包、最长公共子序列、最长上升子序列、划分数。 前两题较简单，从第三题开始有公式推导，二和三题末尾有">
-<meta name="keywords" content="C;DP">
+<meta name="keywords" content="C,DP">
 <meta property="og:type" content="article">
 <meta property="og:title" content="编程训练[C语言]——避免不该有的罚时？试试背诵几个常见的动态规划程序">
 <meta property="og:url" content="https://yoursite.com/2019/02/28/编程训练[C语言]——避免不该有的罚时？试试背诵几个常见的动态规划程序/index.html">
@@ -89,7 +89,7 @@
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20190301163159381.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3VtYnJlbGxhbGFsYWxhbGE=,size_16,color_FFFFFF,t_70">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20190301164051593.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3VtYnJlbGxhbGFsYWxhbGE=,size_16,color_FFFFFF,t_70">
-<meta property="og:updated_time" content="2019-03-24T09:11:20.826Z">
+<meta property="og:updated_time" content="2019-03-24T09:16:28.047Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="编程训练[C语言]——避免不该有的罚时？试试背诵几个常见的动态规划程序">
 <meta name="twitter:description" content="昨天晚上回顾了以前在onenote上记的动态规划笔记，发现很多程序都有相似之处，且最近两天写的动态规划程序都没有一遍AC。所以将这两天写的动态规划程序总结至此，以便背诵、默写用（这种题被罚时实在太亏）。 背诵的时候要特别注意dp数组的功能和其递推公式。 阅读指南六道题分别是钱币兑换、0-1背包、完全背包、最长公共子序列、最长上升子序列、划分数。 前两题较简单，从第三题开始有公式推导，二和三题末尾有">
@@ -360,8 +360,7 @@
 <h3 id="阅读指南"><a href="#阅读指南" class="headerlink" title="阅读指南"></a>阅读指南</h3><p>六道题分别是<strong>钱币兑换、0-1背包、完全背包、最长公共子序列、最长上升子序列、划分数</strong>。</p>
 <p>前两题较简单，从第三题开始有公式推导，二和三题末尾有技巧总结。</p>
 <hr>
-<h1 id="一、hdu1284-钱币兑换问题"><a href="#一、hdu1284-钱币兑换问题" class="headerlink" title="一、hdu1284 钱币兑换问题"></a>一、hdu1284 钱币兑换问题</h1><p>先来道最简单的背诵。</p>
-<p>【题目描述】<br>一个国家只有1，2，3分钱，输入非负整数n（不超过10000），输出兑换金额n一共有多少种换法，多组输入输出。</p>
+<h1 id="一、hdu1284-钱币兑换问题"><a href="#一、hdu1284-钱币兑换问题" class="headerlink" title="一、hdu1284 钱币兑换问题"></a>一、hdu1284 钱币兑换问题</h1><p>先来道最简单的背诵。<br><a id="more"></a><br>【题目描述】<br>一个国家只有1，2，3分钱，输入非负整数n（不超过10000），输出兑换金额n一共有多少种换法，多组输入输出。</p>
 <p>【示例程序】<br>（没有一遍AC的原因写在了注释里）</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> dp[<span class="number">2</span>][<span class="number">10005</span>];   <span class="comment">//dp[i][j]代表用0～i硬币兑换金额j共有多少种换法,</span></span><br><span class="line">					<span class="comment">//递推式是dp[i][j]=dp[i][j-a[i]]+dp[i-1][j]，</span></span><br><span class="line">					<span class="comment">//意思是不用第i种面值凑齐j加上用第i种面值的情况下凑齐j</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="keyword">int</span> a[<span class="number">3</span>]=&#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>&#125;;</span><br><span class="line"></span><br><span class="line">	<span class="comment">//初始化dp数组</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;<span class="number">10000</span>;j++)&#123;</span><br><span class="line">        dp[<span class="number">0</span>][j]=<span class="number">1</span>;		<span class="comment">//只用第0种面值（1分钱）进行兑换，则无论换多少都只有一种方式</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">3</span>;i++)&#123;</span><br><span class="line">        dp[i][<span class="number">0</span>]=<span class="number">1</span>;		<span class="comment">//兑换金额为0，则只有一种兑换方式：所有面值都是0张</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;<span class="number">3</span>;i++)&#123;	<span class="comment">//从第0～1种面值开始循环至用第0～2种面值</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;=<span class="number">10000</span>;j++)&#123;	<span class="comment">//从兑换1分钱开始循环至兑换10000分钱</span></span><br><span class="line">            <span class="keyword">int</span> x,y;</span><br><span class="line">            y=dp[i<span class="number">-1</span>][j];	<span class="comment">//y存储不用第i种面值的兑换种数</span></span><br><span class="line">            <span class="comment">//x存储使用至少1张第i种面值的兑换种数</span></span><br><span class="line">            <span class="keyword">if</span>(j-a[i]&lt;<span class="number">0</span>)x=<span class="number">0</span>;    <span class="comment">//如果要兑换的金额数小于0，则兑换方式是0种</span></span><br><span class="line">            <span class="keyword">else</span> x=dp[i][j-a[i]];</span><br><span class="line">            dp[i][j]=x+y;	<span class="comment">//用第0～i种面值兑换j分钱的种数</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span>(<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n)==<span class="number">1</span>)&#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,dp[<span class="number">2</span>][n]);    <span class="comment">//不慎写成dp[3][n]，导致无论n是多少，输出都为0.</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <hr>
@@ -433,7 +432,9 @@ dp[i][j]=&max\{j>k*w[i-1]|dp[i-1][j],dp[i-1][j-w[i-1]]+v[i-1],\\
       
         <div class="post-tags">
           
-            <a href="/tags/C-DP/" rel="tag"># C;DP</a>
+            <a href="/tags/C/" rel="tag"># C</a>
+          
+            <a href="/tags/DP/" rel="tag"># DP</a>
           
         </div>
       
