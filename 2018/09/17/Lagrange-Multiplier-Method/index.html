@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>Lagrange Multiplier Method | Umbrellalalalala&#39;s blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Lagrange Multiplier MethodToday, I learned a method of finding the conditional extremum of the two-variables function, called the Lagrange multiplier method.  How to use Lagrange Multiplier MethodWhen">
+<meta name="keywords" content="Lagrange">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Lagrange Multiplier Method">
+<meta property="og:url" content="https://yoursite.com/2018/09/17/Lagrange-Multiplier-Method/index.html">
+<meta property="og:site_name" content="Umbrellalalalala&#39;s blog">
+<meta property="og:description" content="Lagrange Multiplier MethodToday, I learned a method of finding the conditional extremum of the two-variables function, called the Lagrange multiplier method.  How to use Lagrange Multiplier MethodWhen">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2018-09-17T15:21:00.100Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Lagrange Multiplier Method">
+<meta name="twitter:description" content="Lagrange Multiplier MethodToday, I learned a method of finding the conditional extremum of the two-variables function, called the Lagrange multiplier method.  How to use Lagrange Multiplier MethodWhen">
+  
+    <link rel="alternate" href="/atom.xml" title="Umbrellalalalala&#39;s blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Umbrellalalalala&#39;s blog</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Enjoy the symphony of the storm.</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Lagrange-Multiplier-Method" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/09/17/Lagrange-Multiplier-Method/" class="article-date">
+  <time datetime="2018-09-17T14:20:30.000Z" itemprop="datePublished">2018-09-17</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Mathematics/">Mathematics</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Lagrange Multiplier Method
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Lagrange-Multiplier-Method"><a href="#Lagrange-Multiplier-Method" class="headerlink" title="Lagrange Multiplier Method"></a>Lagrange Multiplier Method</h1><p>Today, I learned a method of finding the conditional extremum of the two-variables function, called the Lagrange multiplier method. </p>
+<h2 id="How-to-use-Lagrange-Multiplier-Method"><a href="#How-to-use-Lagrange-Multiplier-Method" class="headerlink" title="How to use Lagrange Multiplier Method"></a>How to use Lagrange Multiplier Method</h2><p>When we need to know the unconditional extremum of a two-variables, calculating partial derivatives and second derivatives will be useful.</p>
+<p>But what if I add a condition $\varphi(x,y)=0$?</p>
+<p>To solve the problem about the extremum of $f(x,y)$ under $\varphi(x,y)=0$, we can construct the Lagrange Function: </p>
+<script type="math/tex; mode=display">F(x,y,\lambda)=f(x,y)+\lambda\varphi(x,y)</script><p>Then solve this equation：</p>
+<script type="math/tex; mode=display">\begin{cases} \tag{*}
+\dfrac{\partial F}{\partial x}=\dfrac{\partial f}{\partial x}+\lambda\dfrac{\partial \varphi}{\partial x}=0\\
+&\\
+\dfrac{\partial F}{\partial y}=\dfrac{\partial f}{\partial y}+\lambda\dfrac{\partial \varphi}{\partial y}=0\\
+&\\
+\dfrac{\partial F}{\partial \lambda}=\varphi(x,y)=0\\
+\end{cases}</script><p>All x and y meet with this equation are extreme points meeting $\varphi(x,y)=0$.</p>
+<h2 id="Proof-of-Lagrange-Multiplier-Method"><a href="#Proof-of-Lagrange-Multiplier-Method" class="headerlink" title="Proof of Lagrange Multiplier Method"></a>Proof of Lagrange Multiplier Method</h2><p>Now consider the function $y=y(x)$ confirmed by $\varphi(x,y)=0$, we plug this into $z=f(x,y)$:</p>
+<script type="math/tex; mode=display">z=f(x,y(x))\tag{1}</script><p>Then the two-variables problem is transformed into the single variable problem. Suppose $x_0$ is the extreme point of z, and $y_0=y(x_0)$. Obviously when $x=x_0$(while $y=y_0$):</p>
+<script type="math/tex; mode=display">
+\frac{dz}{dx}\bigg|_{x=x_0}=f_x^{'}(x_0,y(x_0))+f_y^{'}(x_0,y(x_0))\cdot y^{'}(x_0)=0\tag{2}</script><p>By using formula of derivation calculus for hidden function we know:</p>
+<script type="math/tex; mode=display">
+y^{'}(x_0)=-\frac{\varphi_x^{'}(x_0,y_0)}{\varphi_y^{'}(x_0,y_0)}\tag{3}</script><p>Plug $y_0=y(x_0)$ and (3) into (2), and simplify it:</p>
+<script type="math/tex; mode=display">
+\frac{dz}{dx}\bigg|_{x=x_0}=f_x^{'}(x_0,y_0)-\frac{f_y^{'}(x_0,y_0)}{\varphi_y^{'}(x_0,y_0)}\cdot\varphi_x^{'}(x_0,y_0)=0\tag{4}</script><p>If we consider $x=x(y)$confirmed by $\varphi(x,y)=0$. By the similar way, we can get:</p>
+<script type="math/tex; mode=display">
+\frac{dz}{dy}\bigg|_{y=y_0}=f_y^{'}(x_0,y_0)-\frac{f_x^{'}(x_0,y_0)}{\varphi_x^{'}(x_0,y_0)}\cdot\varphi_y^{'}(x_0,y_0)=0\tag{5}</script><p>Let $\lambda=-\dfrac{f’_y(x_0,y_0)}{\varphi’_y(x_0,y_0)}=-\dfrac{f’_x(x_0,y_0)}{\varphi’_x(x_0,y_0)}$. Plug this into (4) and (5). Then we have the following equation:</p>
+<script type="math/tex; mode=display">\begin{cases} 
+f_x^{'}(x_0,y_0)-\lambda\cdot\varphi_x^{'}(x_0,y_0)=0\\
+&\\
+f_y^{'}(x_0,y_0)-\lambda\cdot\varphi_y^{'}(x_0,y_0)=0\\
+&\\
+\end{cases}</script><p>Obviously $x=x_0$ and $y=y_0$ are the solutions of following equation:</p>
+<script type="math/tex; mode=display">\begin{cases} 
+\dfrac{\partial f}{\partial x}+\lambda\dfrac{\partial \varphi}{\partial x}=0\\
+&\\
+\dfrac{\partial f}{\partial y}+\lambda\dfrac{\partial \varphi}{\partial y}=0\\
+&\\
+\varphi(x,y)=0\\
+\end{cases}</script><p>Let $F(x,y,\lambda)=f(x,y)+\lambda\varphi(x,y)$, we can get (*).<br>Q.E.D.</p>
+<blockquote>
+<p> If you are puzzled by why $-\dfrac{f’_y(x_0,y_0)}{\varphi’_y(x_0,y_0)}=-\dfrac{f’_x(x_0,y_0)}{\varphi’_x(x_0,y_0)}$, you can contact me by email umbrellalalalala@qq.com . Actually it is a nature of point of tangency, so I didn’t explain it here.</p>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://yoursite.com/2018/09/17/Lagrange-Multiplier-Method/" data-id="cjtmld3kj0006f6wzcxcu17mg" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Lagrange/">Lagrange</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2019/01/06/Notice-of-Deferred-Update/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Notice of Deferred Update 关于推迟更新的通知
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/09/16/First-Blog-On-This-Site/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">First Blog On This Site</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Mathematics/">Mathematics</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Notice/">Notice</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/diary/">diary</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/programming-languages/">programming languages</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/">C</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Deferred-Update/">Deferred Update</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Lagrange/">Lagrange</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/footprint/">footprint</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/C/" style="font-size: 10px;">C</a> <a href="/tags/Deferred-Update/" style="font-size: 10px;">Deferred Update</a> <a href="/tags/Lagrange/" style="font-size: 10px;">Lagrange</a> <a href="/tags/footprint/" style="font-size: 10px;">footprint</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">February 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/02/15/C语言——基础查漏补缺（一）/">C语言——基础查漏补缺（一）</a>
+          </li>
+        
+          <li>
+            <a href="/2019/01/06/Notice-of-Deferred-Update/">Notice of Deferred Update 关于推迟更新的通知</a>
+          </li>
+        
+          <li>
+            <a href="/2018/09/17/Lagrange-Multiplier-Method/">Lagrange Multiplier Method</a>
+          </li>
+        
+          <li>
+            <a href="/2018/09/16/First-Blog-On-This-Site/">First Blog On This Site</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 Umbrellalalalala<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
