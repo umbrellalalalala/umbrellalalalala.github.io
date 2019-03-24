@@ -262,6 +262,208 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://yoursite.com/2019/02/28/编程训练[C语言]——避免不该有的罚时？试试背诵几个常见的动态规划程序/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Umbrellalalalala">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Umbrellalalalala's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/02/28/编程训练[C语言]——避免不该有的罚时？试试背诵几个常见的动态规划程序/" itemprop="url">编程训练[C语言]——避免不该有的罚时？试试背诵几个常见的动态规划程序</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-02-28T21:30:01+08:00">
+                2019-02-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/algorithm-contest/" itemprop="url" rel="index">
+                    <span itemprop="name">algorithm contest</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>昨天晚上回顾了以前在onenote上记的动态规划笔记，发现很多程序都有相似之处，且最近两天写的动态规划程序都没有一遍AC。所以将这两天写的动态规划程序总结至此，以便背诵、默写用（这种题被罚时实在太亏）。</p>
+<p>背诵的时候要特别注意<strong>dp数组的功能和其递推公式</strong>。</p>
+<h3 id="阅读指南"><a href="#阅读指南" class="headerlink" title="阅读指南"></a>阅读指南</h3><p>六道题分别是<strong>钱币兑换、0-1背包、完全背包、最长公共子序列、最长上升子序列、划分数</strong>。</p>
+<p>前两题较简单，从第三题开始有公式推导，二和三题末尾有技巧总结。</p>
+<hr>
+<h1 id="一、hdu1284-钱币兑换问题"><a href="#一、hdu1284-钱币兑换问题" class="headerlink" title="一、hdu1284 钱币兑换问题"></a>一、hdu1284 钱币兑换问题</h1><p>先来道最简单的背诵。</p>
+<p>【题目描述】<br>一个国家只有1，2，3分钱，输入非负整数n（不超过10000），输出兑换金额n一共有多少种换法，多组输入输出。</p>
+<p>【示例程序】<br>（没有一遍AC的原因写在了注释里）</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> dp[<span class="number">2</span>][<span class="number">10005</span>];   <span class="comment">//dp[i][j]代表用0～i硬币兑换金额j共有多少种换法,</span></span><br><span class="line">					<span class="comment">//递推式是dp[i][j]=dp[i][j-a[i]]+dp[i-1][j]，</span></span><br><span class="line">					<span class="comment">//意思是不用第i种面值凑齐j加上用第i种面值的情况下凑齐j</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="keyword">int</span> a[<span class="number">3</span>]=&#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>&#125;;</span><br><span class="line"></span><br><span class="line">	<span class="comment">//初始化dp数组</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;<span class="number">10000</span>;j++)&#123;</span><br><span class="line">        dp[<span class="number">0</span>][j]=<span class="number">1</span>;		<span class="comment">//只用第0种面值（1分钱）进行兑换，则无论换多少都只有一种方式</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">3</span>;i++)&#123;</span><br><span class="line">        dp[i][<span class="number">0</span>]=<span class="number">1</span>;		<span class="comment">//兑换金额为0，则只有一种兑换方式：所有面值都是0张</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;<span class="number">3</span>;i++)&#123;	<span class="comment">//从第0～1种面值开始循环至用第0～2种面值</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;=<span class="number">10000</span>;j++)&#123;	<span class="comment">//从兑换1分钱开始循环至兑换10000分钱</span></span><br><span class="line">            <span class="keyword">int</span> x,y;</span><br><span class="line">            y=dp[i<span class="number">-1</span>][j];	<span class="comment">//y存储不用第i种面值的兑换种数</span></span><br><span class="line">            <span class="comment">//x存储使用至少1张第i种面值的兑换种数</span></span><br><span class="line">            <span class="keyword">if</span>(j-a[i]&lt;<span class="number">0</span>)x=<span class="number">0</span>;    <span class="comment">//如果要兑换的金额数小于0，则兑换方式是0种</span></span><br><span class="line">            <span class="keyword">else</span> x=dp[i][j-a[i]];</span><br><span class="line">            dp[i][j]=x+y;	<span class="comment">//用第0～i种面值兑换j分钱的种数</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span>(<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n)==<span class="number">1</span>)&#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,dp[<span class="number">2</span>][n]);    <span class="comment">//不慎写成dp[3][n]，导致无论n是多少，输出都为0.</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<h1 id="二、0-1背包问题"><a href="#二、0-1背包问题" class="headerlink" title="二、0-1背包问题"></a>二、0-1背包问题</h1><p>【题目描述】<br>第一行输入n代表共有n（不超过100）种物品，第二行依次输入这些物品的重量(不超过100)，第三行依次输入这些物品的价值（不超过100），第四行输入背包能承受的总重（10000），输出背包能装的物品的最大总价值。</p>
+<p>比如输入：<br><figure class="highlight d"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">4</span></span><br><span class="line"><span class="number">3</span> <span class="number">1</span> <span class="number">2</span> <span class="number">3</span> </span><br><span class="line"><span class="number">4</span> <span class="number">2</span> <span class="number">3</span> <span class="number">2</span></span><br><span class="line"><span class="number">5</span></span><br></pre></td></tr></table></figure></p>
+<p>输出</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">7</span><br></pre></td></tr></table></figure>
+<p>【示例代码】</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MAX_N 100</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MAX_W 10000</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> dp[MAX_N+<span class="number">1</span>][MAX_W+<span class="number">1</span>];   <span class="comment">//dp[i][j]代表从0～i-1号这前i个物品中选择的最大总价值</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="keyword">int</span> w[MAX_N];   <span class="comment">//物品重量</span></span><br><span class="line">    <span class="keyword">int</span> v[MAX_N];   <span class="comment">//物品价值</span></span><br><span class="line">    <span class="keyword">int</span> total_w;    <span class="comment">//总重量</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">while</span>(<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n)==<span class="number">1</span>)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">"%d"</span>,w+i);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">"%d"</span>,v+i);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;total_w);</span><br><span class="line">        </span><br><span class="line">        <span class="comment">//step1:初始化dp数组</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;=total_w;j++)&#123;   <span class="comment">//从0～-1号物品中选任何重量上限的物品，总价值都是0</span></span><br><span class="line">            dp[<span class="number">0</span>][j]=<span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">//step2:完善dp数组</span></span><br><span class="line">        </span><br><span class="line">        <span class="comment">//【错误一】不慎将for循环写成这样，造成了Thread 1: EXC_BAD_ACCESS (code=1, address=0x141257284)的错误，检查发现数组w中有一位数据发生了溢出（数值是一个非常小的负数）</span></span><br><span class="line"><span class="comment">//        for(int i=1;i&lt;MAX_N;i++)&#123;</span></span><br><span class="line"><span class="comment">//            for(int j=0;j&lt;MAX_W;j++)&#123;</span></span><br><span class="line">        <span class="comment">//【错误二】将for循环写成如下这样，会导致最终需要输出的dp[n][total_w]未被赋值</span></span><br><span class="line"><span class="comment">//        for(int i=1;i&lt;n;i++)&#123;</span></span><br><span class="line"><span class="comment">//            for(int j=1;j&lt;total_w;j++)&#123;</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;=total_w;j++)&#123;</span><br><span class="line">                <span class="keyword">int</span> x,y;</span><br><span class="line">                x=dp[i<span class="number">-1</span>][j];   <span class="comment">//x存储从0～i-2号物品中选择的总价值(即不选第i-1号物品)</span></span><br><span class="line">                </span><br><span class="line">                <span class="comment">//y存储选择一个第i-1号物品的前提下的最大总价值</span></span><br><span class="line">                <span class="keyword">if</span>(j&gt;=w[i<span class="number">-1</span>])&#123;</span><br><span class="line">                    y=dp[i<span class="number">-1</span>][j-w[i<span class="number">-1</span>]]+v[i<span class="number">-1</span>];</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span>&#123;   <span class="comment">//重量上限不足以放下第i-1号物品</span></span><br><span class="line">                    y=<span class="number">0</span>;</span><br><span class="line">                &#125;</span><br><span class="line"><span class="comment">//                dp[i][j]=x+y;   //【错误三,最致命】不慎写成这句话</span></span><br><span class="line">                dp[i][j]=(x&gt;y)?x:y;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">//step3:利用dp数组回答问题</span></span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,dp[n][total_w]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>【总结】<br>可以看出来，这种类型的动态规划的核心是初始化并完善dp数组，大致顺序就是：<br>0、察觉到这是动态规划题，确定大致算法流程；<br><strong>1、确认dp[i][j]含义和递推式；<br>2、初始化dp数组；<br>3、完善dp数组。</strong><br>然后就是利用dp数组中的元素回答问题。</p>
+<p>这道题犯的错集中在dp数组的完善部分，说明我需要注意数组下标变化、注意递推式的正确使用，以及最终的的是：<strong>保持对dp数组功能的认知</strong></p>
+<h3 id="不能一遍AC的根源"><a href="#不能一遍AC的根源" class="headerlink" title="不能一遍AC的根源"></a>不能一遍AC的根源</h3><p>在被这两道题疯狂罚时之后，我发现我的错误都不是算法问题，而是集中在数组下标没把握好上，属于细节问题。于是博主决定不轻视任何一道题，任何题都要在纸上写出算法思路、数据结构，规定好数据范围、数组下标这类细节，然后再进行编码。抱着这样的想法，我做了一道0-1背包升级版——完全背包问题，这一次，终于一遍就AC了：</p>
+<hr>
+<h1 id="三、完全背包问题"><a href="#三、完全背包问题" class="headerlink" title="三、完全背包问题"></a>三、完全背包问题</h1><p>【题目描述】<br>依旧是输入物品种数n，每种物品的重量，每个物品的价值，背包的承重上限，输出背包能装的物品的最大总价值。和0-1背包问题不同的是，每种物品能选无限多件。</p>
+<p>【示例代码】</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MAX_N 100</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MAX_W 10000</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> w[MAX_N];</span><br><span class="line">    <span class="keyword">int</span> v[MAX_N];</span><br><span class="line">    <span class="keyword">int</span> max_w;</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="keyword">int</span> dp[MAX_N+<span class="number">1</span>][MAX_W+<span class="number">1</span>];   <span class="comment">//注意行数和列数，因为要多用一行所以加一</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">while</span>(<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n)==<span class="number">1</span>)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">"%d"</span>,w+i);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">"%d"</span>,v+i);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;max_w);</span><br><span class="line">        </span><br><span class="line">        <span class="comment">//初始化dp数组</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;=max_w;j++)&#123;</span><br><span class="line">            dp[<span class="number">0</span>][j]=<span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">//递推式完善dp数组</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;=max_w;j++)&#123;</span><br><span class="line">                <span class="keyword">int</span> x,y;</span><br><span class="line">                x=dp[i<span class="number">-1</span>][j];</span><br><span class="line">                <span class="keyword">if</span>(j&lt;w[i<span class="number">-1</span>])&#123;</span><br><span class="line">                    y=<span class="number">0</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span>&#123;</span><br><span class="line">                    y=dp[i][j-w[i<span class="number">-1</span>]]+v[i<span class="number">-1</span>];</span><br><span class="line">                &#125;</span><br><span class="line">                dp[i][j]=(x&gt;y)?x:y;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">//根据dp回答问题</span></span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,dp[n][max_w]);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>展示以下我草稿纸上定义的dp数组的功能和递推关系的推导：<br>dp[i][j]代表从前i类（0～i-1号）物品挑选出总重不超过j的最大价值。</p>
+<p>dp数组的初始化：显然dp[0][…]应当都为0。</p>
+<p>递推关系推导：</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+dp[i][j]=&max\{j>k*w[i-1]|dp[i-1][j],dp[i-1][j-w[i-1]]+v[i-1],\\
+&dp[i-1][j-2*w[i-1]]+2*v[i-1],...,dp[i-1][j-k*w[i-1]]+k*v[i-1]\}
+\end{aligned}</script><p>这个表达式可以简化，大括号中除了第一项，其余项的最大值就是$dp[i][j-w[i-1]]+v[i-1]$，<br>所以，递推关系可以简化成如下：</p>
+<script type="math/tex; mode=display">dp[i][j]=max\{dp[i-1][j],dp[i][j-w[i-1]]+v[i-1]\},(如果j<w[i-1],则去掉大括号中第二项)</script><h3 id="总之遇到动态规划的题，遵循以下步骤可以大大降低错误率"><a href="#总之遇到动态规划的题，遵循以下步骤可以大大降低错误率" class="headerlink" title="总之遇到动态规划的题，遵循以下步骤可以大大降低错误率"></a>总之遇到动态规划的题，遵循以下步骤可以大大降低错误率</h3><p>1、<strong>在纸上书写</strong>大致流程、数据（存储）结构；<br>2、规定dp数组的含义；<br>3、初始化dp数组；<br>4、确定递推式完善dp数组；<br>5、根据确定的dp数组回答问题。</p>
+<p>⚠️注意不要轻视任何题目，以及有条件的话背诵一些经典的动态规划代码，比如本文写的几个。</p>
+<p>以上所提放在其他类型的算法题上，也是适用的。</p>
+<hr>
+<h1 id="四、最长公共子序列问题"><a href="#四、最长公共子序列问题" class="headerlink" title="四、最长公共子序列问题"></a>四、最长公共子序列问题</h1><p>和背包问题思路不同的动态规划题。</p>
+<p>【问题描述】分别输入字符串s和t的长度，再输入s和t两个字符串，输出s和t的最长公共子序列</p>
+<p>比如输入：</p>
+<figure class="highlight d"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">4</span> <span class="number">4</span></span><br><span class="line">abcd</span><br><span class="line">becd</span><br></pre></td></tr></table></figure>
+<p>由于两个字符串的公共部分是bcd，有三个字符，则输出：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">3</span><br></pre></td></tr></table></figure>
+<p>由于在上一题已经尝到了先在纸上分析的甜头，所以这一题先进行分析：<br>1、规定dp数组：dp[i][j]代表s[1]~s[i]和t[1]～t[j]的公共子序列，注意我不用s[0]和t[0]，所以定义存储串s和串t的数组的长度应当额外加一；<br>2、初始化dp数组：dp[0][…]和dp[…][0]肯定都为0；<br>3、确定递推关系：</p>
+<p>如果$s[i+1]==t[i+1]$，则</p>
+<script type="math/tex; mode=display">dp[i+1][j+1]=max\{dp[i][j]+1,dp[i+1][j],dp[i][j+1]\}</script><p>反之</p>
+<script type="math/tex; mode=display">dp[i+1][j+1]=max\{dp[i][j+1],dp[i+1][j]\}</script><p>4、程序Output：dp[n][m]，n和m分别为用户输入的s和t的长度。</p>
+<p>【示例代码】<br>我又一次因为纸上打草稿而避免了罚时</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MAX_N 1000</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MAX_M 1000</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n,m;</span><br><span class="line">    <span class="keyword">char</span> s[MAX_N+<span class="number">1</span>],t[MAX_M+<span class="number">1</span>];     <span class="comment">//从下标1开始使用，所以额外加一</span></span><br><span class="line">    <span class="keyword">int</span> dp[MAX_N+<span class="number">1</span>][MAX_M+<span class="number">1</span>];</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">while</span>(<span class="built_in">scanf</span>(<span class="string">"%d %d"</span>,&amp;n,&amp;m)==<span class="number">2</span>)&#123;</span><br><span class="line">        getchar();  <span class="comment">//吸收回车</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">            s[i]=getchar();</span><br><span class="line">        &#125;</span><br><span class="line">        getchar(); <span class="comment">//吸收回车</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=m;i++)&#123;</span><br><span class="line">            t[i]=getchar();</span><br><span class="line">        &#125;</span><br><span class="line">        getchar();  <span class="comment">//吸收回车</span></span><br><span class="line">        </span><br><span class="line">        <span class="comment">//初始化dp数组</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;=m;j++)&#123;</span><br><span class="line">            dp[<span class="number">0</span>][j]=<span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;=n;i++)&#123;</span><br><span class="line">            dp[i][<span class="number">0</span>]=<span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">//根据递推式完善dp数组</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;m;j++)&#123;</span><br><span class="line">                <span class="keyword">if</span>(s[i+<span class="number">1</span>]!=t[j+<span class="number">1</span>])&#123;</span><br><span class="line">                    dp[i+<span class="number">1</span>][j+<span class="number">1</span>]=(dp[i][j+<span class="number">1</span>]&gt;dp[i+<span class="number">1</span>][j])?dp[i][j+<span class="number">1</span>]:dp[i+<span class="number">1</span>][j];</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span>&#123;</span><br><span class="line">                    <span class="keyword">int</span> temp=(dp[i][j]+<span class="number">1</span>&gt;dp[i+<span class="number">1</span>][j])?dp[i][j]+<span class="number">1</span>:dp[i+<span class="number">1</span>][j];</span><br><span class="line">                    dp[i+<span class="number">1</span>][j+<span class="number">1</span>]=(temp&gt;dp[i][j+<span class="number">1</span>])?temp:dp[i][j+<span class="number">1</span>];</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">//根据dp数组回答问题</span></span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,dp[n][m]);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<h1 id="五、最长上升子序列"><a href="#五、最长上升子序列" class="headerlink" title="五、最长上升子序列"></a>五、最长上升子序列</h1><p>【题目描述】<br><img src="https://img-blog.csdnimg.cn/20190301163159381.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3VtYnJlbGxhbGFsYWxhbGE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>图片来自《挑战程序设计竞赛（第2版）》</p>
+<p>这道题和上道题题目很像，但意思完全不同。依旧先分析实现方法：<br>1、dp[i+1]代表以a[i]结尾的最长上升子序列的长度；<br>2、初始化dp[0]和dp[1]为0；<br>3、递推公式是：<br>$dp[i]=max{1,dp[j]+1|j&lt;i且a[j]&lt;a[i]}$</p>
+<p>【示例代码】</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MAX_N 1000</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="keyword">int</span> a[MAX_N];</span><br><span class="line">    <span class="keyword">int</span> dp[MAX_N+<span class="number">1</span>];</span><br><span class="line">    <span class="keyword">int</span> current;</span><br><span class="line">    <span class="keyword">while</span>(<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n)==<span class="number">1</span>)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">"%d"</span>,a+i);</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">//初始化dp数组</span></span><br><span class="line">        dp[<span class="number">0</span>]=<span class="number">0</span>;</span><br><span class="line">        dp[<span class="number">1</span>]=<span class="number">1</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">//完善dp数组</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">2</span>;i&lt;=n;i++)&#123;</span><br><span class="line">            dp[i]=dp[i<span class="number">-1</span>];</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=i<span class="number">-2</span>;j&gt;=<span class="number">0</span>;j--)&#123;</span><br><span class="line">                <span class="keyword">if</span>(a[i<span class="number">-1</span>]&gt;a[j])&#123;</span><br><span class="line">                    current=dp[j+<span class="number">1</span>]+<span class="number">1</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span>&#123;</span><br><span class="line">                    <span class="keyword">continue</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                dp[i]=(dp[i]&gt;current)?dp[i]:current;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">//利用dp数组回答问题</span></span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,dp[n]);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<h1 id="六、有关计数问题的dp——划分数"><a href="#六、有关计数问题的dp——划分数" class="headerlink" title="六、有关计数问题的dp——划分数"></a>六、有关计数问题的dp——划分数</h1><p>【题目描述】<br><img src="https://img-blog.csdnimg.cn/20190301164051593.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3VtYnJlbGxhbGFsYWxhbGE=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>将题目中“模M的余数”去掉，我们直接输出划分方法总数。</p>
+<p>图片来自《挑战程序设计竞赛（第2版）》。</p>
+<p>实现方法分析：<br>1、dp[i][j]代表j划分为不超过i组的种数；<br>2、初始化dp[0][非零]为0，因为没有非零数能被划分为不超过0组，dp[…][0]为1，0被划分为任意多组方式都为一种；<br>3、j划分成不超过i组，可以等价为<strong>将j划分为i组，然后每一组的值可以为0</strong>。这样的话就假设j划分成的i个数都为非零和至少一个零两种情况，前者等于dp[i][j-i]，后者等于dp[i-1][j]，所以递推式如下：<br>$dp[i][j]=dp[i][j-i]+dp[i-1][j]$<br>$(i&gt;=1,j&gt;=1)$</p>
+<p>⚠️注意不要将dp[i][j-i]写成dp[i][j-1]</p>
+<p>【示例代码】</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MAX_M 1000</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MAX_N 1000</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n,m;</span><br><span class="line">    <span class="keyword">int</span> dp[MAX_M][MAX_N];</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">while</span>(<span class="built_in">scanf</span>(<span class="string">"%d %d"</span>,&amp;n,&amp;m)==<span class="number">2</span>)&#123;</span><br><span class="line">        <span class="comment">//初始化dp数组</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;=m;i++)&#123;</span><br><span class="line">            dp[i][<span class="number">0</span>]=<span class="number">1</span>;     <span class="comment">//将0划分成任意多组，方式都只有一种</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;=n;j++)&#123;</span><br><span class="line">            dp[<span class="number">0</span>][j]=<span class="number">0</span>;     <span class="comment">//任何正数都无法划分成0组</span></span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">//利用递推公式完善dp数组</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=m;i++)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;=n;j++)&#123;</span><br><span class="line"><span class="comment">//                dp[i][j]=dp[i-1][j]+dp[i][j-1];   //错误写法</span></span><br><span class="line">                dp[i][j]=dp[i<span class="number">-1</span>][j]+dp[i][j-i];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">//利用dp回答问题</span></span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,dp[m][n]);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<h1 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h1><p>把以上几道题背会，足以掌握动态规划的基本方法，也足以举一反三地应对简单一些的赛事和考试。对于高级赛事，仍需要多练习，感悟为主。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://yoursite.com/2019/02/15/C语言——基础查漏补缺（一）/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -887,7 +1089,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -898,7 +1100,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>
@@ -909,7 +1111,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
